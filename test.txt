@@ -1,0 +1,5 @@
+studentName firstName lastName @
+studentName -> firstName lastName @
+firstName -> John Mary @
+lastName -> Doe Brown @
+@@
