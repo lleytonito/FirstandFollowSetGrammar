@@ -7,7 +7,7 @@
 void LoadGrammar(char *grammarFileName);
 
 // Returns a string with some statistics for the grammar.
-char* GetStats();
+void GetStats();
 
 // Returns the first sets of all nonterminals.
 char* GetFirstSets();
