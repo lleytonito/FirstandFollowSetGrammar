@@ -1,9 +1,18 @@
-studentName firstName lastName @
-studentName -> firstName lastName @
-studentName -> anonymous @
-firstName -> John @
-firstName -> Tom @
-firstName -> Jane @
-lastName -> Doe @
-lastName -> Unknown @
+S X Y Z E F @
+
+S -> a X Z h @
+
+X -> c Y @
+
+Y -> b Y @
+Y -> # @
+
+Z -> E F @
+
+E -> g @
+E -> # @
+
+F -> f @
+F -> # @
+
 @@

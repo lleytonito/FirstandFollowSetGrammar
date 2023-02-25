@@ -1,0 +1,74 @@
+//local variables
+	int charCount = 0;
+	int totalCharCount = 0;
+	int tokenCount = 0;
+	char firstChar;
+	string firstToken;
+//for all rules
+	for (int i = 0; i < rules.size(); i++) {
+		//check for random accidental spaces 
+		firstChar = rules[i].at(0);
+		if (isspace(firstChar)) {
+			rules[i].erase(0,1);
+		}
+		for(int j = 0; j < rules[i].length(); j++) {
+			char itr = rules[i].at(j);
+			charCount++;
+			if(isspace(itr)) {
+				token = rules[i].substr(totalCharCount, charCount-1);
+				tokens.push_back(token);
+				totalCharCount += charCount;
+				charCount = 0;
+			}
+		}
+		for (int i = 0; i < tokens.size(); i++) {
+		cout << tokens[i] << endl;
+		}
+		
+		
+		if (!isalpha(tokens[tokenCount][0])) {
+			cout << tokens[tokenCount] << endl;
+			cout << "INVALID FIRSTLETTERID" << endl;
+			exit(0);
+		}
+
+		for(int k=1; k < tokens[tokenCount].length(); k++) {
+			if(! isalpha(tokens[tokenCount][k])) {
+				if(! isdigit(tokens[tokenCount][k])) {
+					grammar = false;
+					cout << "INVALID LETTERS/DIGITS ONLY FIRST ID" << endl;
+					exit(0);
+				}
+			}
+		}
+		tokenCount++;
+
+		if(tokens[tokenCount] != "->") {
+			cout <<  "INVALID ARROW" << endl;
+			exit(0);
+		}
+		tokenCount++;
+
+		for(tokenCount; tokenCount< tokens.size(); tokenCount++) {
+			if (!isalpha(tokens[tokenCount][0])) {
+			cout << "INVALID FIRSTLETTERID" << endl;
+			exit(0);
+			}
+
+			for(int k=1; k < tokens[tokenCount].length(); k++) {
+				if(! isalpha(tokens[tokenCount][k])) {
+					if(! isdigit(tokens[tokenCount][k])) {
+						grammar = false;
+						cout << "INVALID LETTERS/DIGITS ONLY FIRST ID" << endl;
+						exit(0);
+					}
+				}
+		}
+		}
+
+		
+		totalCharCount = 0;
+		charCount = 0;
+		tokenCount = tokens.size();
+
+	}
